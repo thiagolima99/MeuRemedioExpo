@@ -6,6 +6,7 @@ import { Button } from '../components/ui/Button';
 import { colors, spacing } from '../constants/theme';
 import { pararSom, requestAlarmPermissions } from '../src/services/alarm.service';
 
+// Tipos de medicamentos
 const tipos = [
     { label: 'Comprimido', value: 'Comprimido', icon: () => <Image source={require('../assets/comprimido.png')} style={{ width: 24, height: 24 }} /> },
     { label: 'Gotas', value: 'Gotas', icon: () => <Image source={require('../assets/gotas.png')} style={{ width: 24, height: 24 }} /> },
@@ -13,6 +14,7 @@ const tipos = [
     { label: 'Injeção', value: 'Injeção', icon: () => <Image source={require('../assets/injecao.png')} style={{ width: 24, height: 24 }} /> },
 ];
 
+// Tela Inicial e permissão de alarme
 export default function TelaInicial() {
     useEffect(() => {
         requestAlarmPermissions();

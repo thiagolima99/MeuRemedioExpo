@@ -39,7 +39,7 @@ export async function deleteMedicamento(medicamentoId: string): Promise<void> {
   await saveAllMedicamentos(lista);
 }
 
-// gerenciar a lista
+// gerenciar a lista de medicamentos
 export const useMedicamentos = () => {
     const [medicamentos, setMedicamentos] = useState<Medicamento[]>([]);
     const [loading, setLoading] = useState(true);

@@ -60,7 +60,7 @@ export async function tocarSom() {
 
     try {
         const { sound } = await Audio.Sound.createAsync(
-            { uri: 'URL_DO_SEU_SOM_ALARME' } // Use um som em assets ou URL
+            { uri: 'URL_DO_SEU_SOM_ALARME' }
         );
         soundObject = sound;
         await soundObject.setVolumeAsync(1.0);

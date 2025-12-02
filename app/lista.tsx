@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
 import { Card } from '../components/ui/Card';
 import { colors, spacing } from '../constants/theme';
-// Update the import path below if ListItem exists elsewhere, e.g.:
 import { ListItem } from '../src/components/ListItem';
 import { deleteMedicamento, useMedicamentos } from '../src/services/data.service';
 import { Medicamento } from '../src/types/Medicamento';
@@ -18,7 +17,7 @@ export default function ListaMedicamentosScreen() {
     }, []);
 
     const handleLongPress = (medicamento: Medicamento) => {
-        // Simula AlertDialog.Builder (Substitui a lógica de alerta nativa)
+        // Simula AlertDialog.Builder
         Alert.alert(
             "Remover Medicamento",
             `Deseja remover o medicamento '${medicamento.nome}'?`,
@@ -34,7 +33,7 @@ export default function ListaMedicamentosScreen() {
                             // 1. Cancela a notificação/alarme
                             await Notifications.cancelScheduledNotificationAsync(medicamento.notificationId);
                             
-                            // 2. Deleta do "banco" (Substitui viewModel.deletar)
+                            // 2. Deleta do banco
                             await deleteMedicamento(medicamento.id);
                             
                             // 3. Atualiza a UI

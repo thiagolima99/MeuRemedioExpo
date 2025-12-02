@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     card: {
         margin: 8,
         borderRadius: 8,
-        elevation: 4, // Sombra Android
+        elevation: 4, 
         backgroundColor: '#33B418', // Cor de fundo do item
     },
     content: {
