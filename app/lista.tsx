@@ -8,16 +8,15 @@ import { deleteMedicamento, useMedicamentos } from '../src/services/data.service
 import { Medicamento } from '../src/types/Medicamento';
 
 export default function ListaMedicamentosScreen() {
-    // Observa a lista no banco e atualiza
+    
     const { medicamentos, loading, refresh } = useMedicamentos();
 
-    // Quando a tela é focada atualiza a lista
     useEffect(() => {
         refresh();
     }, []);
 
     const handleLongPress = (medicamento: Medicamento) => {
-        // Simula AlertDialog.Builder
+        
         Alert.alert(
             "Remover Medicamento",
             `Deseja remover o medicamento '${medicamento.nome}'?`,
@@ -30,13 +29,13 @@ export default function ListaMedicamentosScreen() {
                     text: "Sim",
                     onPress: async () => {
                         try {
-                            // 1. Cancela a notificação/alarme
+                            // Cancela a notificação/alarme
                             await Notifications.cancelScheduledNotificationAsync(medicamento.notificationId);
                             
-                            // 2. Deleta do banco
+                            // Deleta do banco
                             await deleteMedicamento(medicamento.id);
                             
-                            // 3. Atualiza a UI
+                            // Atualiza a lista
                             await refresh();
                             Alert.alert("Sucesso", "Removido com sucesso!");
                         } catch (e) {

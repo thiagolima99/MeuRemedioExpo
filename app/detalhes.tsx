@@ -24,6 +24,7 @@ export default function DetalhesScreen() {
 
     // ...
     return (
+        // Tela de detalhes do medicamento
         <View style={styles.container}>
             <Text style={styles.infoText}>Tipo selecionado: {tipoMedicamento}</Text>
             <TextInput

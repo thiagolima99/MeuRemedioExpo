@@ -13,11 +13,10 @@ import { Medicamento } from '../src/types/Medicamento';
 export default function FrequenciaScreen() {
     const { nome, tipo } = useLocalSearchParams();
     
-    // Assegura que nome e tipo são strings (como no Kotlin)
     const nomeMedicamento = typeof nome === 'string' ? nome : 'Desconhecido';
     const tipoMedicamento = typeof tipo === 'string' ? (tipo as Medicamento['tipo']) : 'Comprimido';
 
-    const [frequencia, setFrequencia] = useState(''); // Não usado na lógica do alarme simples
+    const [frequencia, setFrequencia] = useState('');
     const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
 
@@ -47,7 +46,7 @@ export default function FrequenciaScreen() {
             try {
                 notificationId = await scheduleMedicamentoAlarm(novoMedicamento);
             } catch (e) {
-                // Se falhar no web, apenas loga e segue
+                
                 if (typeof window !== 'undefined') {
                     console.warn('Agendamento de alarme não suportado no web.');
                 } else {
@@ -59,7 +58,7 @@ export default function FrequenciaScreen() {
                 "Sucesso",
                 `Medicamento salvo! Alarme definido para ${String(hora).padStart(2, '0')}:${String(minuto).padStart(2, '0')}`
             );
-            // Navega para a tela inicial (Substitui startActivity/finish)
+            
             setTimeout(() => {
                 router.replace('/');
             }, 500);
@@ -79,8 +78,9 @@ export default function FrequenciaScreen() {
                 keyboardType="numeric"
                 value={frequencia}
                 onChangeText={setFrequencia}
-            />
+                />
             <Button
+                // abre o selecionador de horário
                 title="Selecionar horário"
                 onPress={() => setShowPicker(true)}
                 style={{ backgroundColor: colors.secondary, marginBottom: spacing.s }}

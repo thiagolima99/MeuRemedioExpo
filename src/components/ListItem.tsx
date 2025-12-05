@@ -4,7 +4,7 @@ import { Medicamento } from '../types/Medicamento';
 
 interface ListItemProps {
     medicamento: Medicamento;
-    onLongPress: (medicamento: Medicamento) => void; // Simula onItemLongClick
+    onLongPress: (medicamento: Medicamento) => void; 
 }
 
 export const ListItem: React.FC<ListItemProps> = ({ medicamento, onLongPress }) => {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         margin: 8,
         borderRadius: 8,
         elevation: 4, 
-        backgroundColor: '#33B418', // Cor de fundo do item
+        backgroundColor: '#33B418',
     },
     content: {
         padding: 16,

@@ -21,7 +21,7 @@ export async function requestAlarmPermissions() {
 
 // Agendar um alarme
 export async function scheduleMedicamentoAlarm(medicamento: Medicamento): Promise<string> {
-  // Cancela qualquer alarme antigo para este medicamento
+  
   await Notifications.cancelScheduledNotificationAsync(medicamento.notificationId);
 
 
@@ -30,7 +30,7 @@ export async function scheduleMedicamentoAlarm(medicamento: Medicamento): Promis
   dataAgendamento.setMinutes(medicamento.horarioInicial.minuto);
   dataAgendamento.setSeconds(0);
 
-  // Se o horário já passou hoje, agenda para amanhã
+  // Se o horário já passou hoje agenda para amanhã
   if (dataAgendamento < new Date()) {
     dataAgendamento.setDate(dataAgendamento.getDate() + 1);
   }
